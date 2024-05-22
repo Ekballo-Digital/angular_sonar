@@ -1,0 +1,37 @@
+.pai-login {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../assets/imgs/wallpaper.jpeg");
+    /* background: radial-gradient(circle at 25.21484375% 15.859375%, #ffca2c 0%, 17.5%, rgba(71, 255, 120, 0) 35%), radial-gradient(circle at 72.71484375% 92.109375%, #605E5E 0%, 17.5%, rgba(96, 94, 94, 0) 35%), radial-gradient(circle at 45.21484375% 89.609375%, #605E5E 0%, 17.5%, rgba(96, 94, 94, 0) 35%), radial-gradient(circle at 65% 95.859375%, #ffca2c 0%, 17.5%, rgba(71, 255, 120, 0) 35%), radial-gradient(circle at 13.750000000000002% 55.01953125%, #605E5E 0%, 17.5%, rgba(96, 94, 94, 0) 35%), radial-gradient(circle at 62.71484375000001% 89.609375%, #605E5E 0%, 17.5%, rgba(96, 94, 94, 0) 35%), radial-gradient(circle at 94.35384114583333% 89.61588541666666%, #ffca2c 0%, 20%, rgba(71, 255, 120, 0) 40%), radial-gradient(circle at 6.503906249999999% 88.037109375%, rgba(125, 111, 34, 0.99) 0%, 25%, rgba(34, 125, 58, 0) 50%), radial-gradient(circle at 6.165364583333333% 12.617187499999998%, #7d6f22 0%, 42%, rgba(34, 125, 58, 0) 70%), radial-gradient(circle at 93.6865234375% 11.42578125%, #ccb637 0%, 42%, rgba(55, 204, 95, 0) 70%), radial-gradient(circle at 48.9013671875% 49.521484375%, #FFFFFF 0%, 100%, rgba(255, 255, 255, 0) 100%); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(30%);
+    z-index: -1;
+}
+
+p,
+h1 {
+    color: #ffff;
+}
+
+.containerLogin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.contorno {
+    padding: 22px;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(9.5px);
+    -webkit-backdrop-filter: blur(16.5px);
+    border-radius: 10px;
+    color: #ffff;
+}

@@ -1,0 +1,45 @@
+<form [formGroup]="MatrizForm" (ngSubmit)="submit()">
+
+    <div class="p-2">
+        <label>Estado</label>
+        <select class="form-select" formControlName="codigoEstado">
+            <option></option>
+            <option *ngFor="let item of ResponseEstado" [value]="item.codigoEstado">
+                {{item.descricaoEstado}}</option>
+
+        </select>
+    </div>
+
+    <div class="p-2">
+        <label>Área</label>
+        <select class="form-select" formControlName="codigoArea">
+            <option></option>
+            <option *ngFor="let item of ResponseArea" [value]="item.codigoArea">{{item.nomeArea}} -
+                {{item.siglaArea}}
+            </option>
+        </select>
+    </div>
+
+    <div class="p-2">
+        <label>Alerta</label>
+        <select class="form-select" formControlName="codigoAlerta">
+            <option></option>
+            <option *ngFor="let item of ResponseAlerta2" [value]="item.codigoAlerta">
+                {{item.alertaNivel}}
+            </option>
+        </select>
+    </div>
+
+    <div class="p-2">
+        <label>Mandatório</label>
+        <select class="form-select" formControlName="codigoPrioridade">
+            <option></option>
+            <option *ngFor="let item of ResponsePrioridade" [value]="item.codigoPrioridade">
+                {{item.nomePrioridade}}</option>
+        </select>
+    </div>
+
+
+    <button type="submit" class="btn btn-warning mt-3" style="margin-right: 7px;">Cadastrar</button>
+    <a routerLink="/config-matriz/editar/matriz" class="btn btn-warning mt-3">Ações</a>
+</form>

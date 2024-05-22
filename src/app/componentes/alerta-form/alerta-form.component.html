@@ -1,0 +1,25 @@
+<form [formGroup]="AlertaForm" (ngSubmit)="submit()">
+    <div class="p-2">
+        <label>Nivel Alerta</label>
+        <input type="number" class="form-control" formControlName="nivelAlerta">
+    </div>
+
+    <div class="p-2">
+        <label>Descrição Alerta</label>
+        <input type="text" class="form-control" formControlName="descricaoAlerta">
+    </div>
+
+    <div class="p-2">
+        <label>Cor Alerta</label>
+        <select class="form-select" formControlName="codigoCor">
+            <option value="null"></option>
+            <option *ngFor="let item of ResponseCor" value="{{item.codigoCor}}">
+                {{item.nomeCor}}
+            </option>
+        </select>
+    </div>
+
+
+    <button type="submit" class="btn btn-warning mt-3" style="margin-right: 7px;">Cadastrar</button>
+    <a routerLink="/cadastro/editar/alertas" class="btn btn-warning mt-3">Ações</a>
+</form>

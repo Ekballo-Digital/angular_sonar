@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+
+<div class="container" style="margin-top: 100px;">
+    <app-cred></app-cred>
+
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col" class="td-sigla">Codigo Estado</th>
+                    <th scope="col" class="td-sigla">Estados</th>
+                    <th scope="col" class="td-sigla">Area</th>
+                    <th scope="col" class="td-sigla">Tipo Estado</th>
+                    <th scope="col" class="td-sigla">Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of Estado">
+
+                    <td>{{ item.codigoEstado }}</td>
+
+                    <td *ngIf="!item.editing">{{ item.descricaoEstado }}</td>
+                    <td *ngIf="item.editing"><input type="text" class="form-control" [(ngModel)]="item.descricaoEstado">
+                    </td>
+                    <td *ngIf="!item.editing">{{ item.codigoAreaEstado }}</td>
+                    <td *ngIf="item.editing">
+                        <select class="form-select" [(ngModel)]="item.codigoAreaEstado">
+                            <option *ngFor="let linha of Area" [value]="linha.codigoArea">{{ linha.nomeArea }} -
+                                {{linha.siglaArea}}
+                            </option>
+                        </select>
+                    </td>
+
+
+                    <td *ngIf="!item.editing">{{ item.tipoEstado }}</td>
+                    <td *ngIf="item.editing">
+                        <select class="form-select" [(ngModel)]="item.tipoEstado">
+                            <option value="Fixo">Fixo</option>
+                            <option value="L">Livre</option>
+                        </select>
+                    </td>
+
+                    <td>
+                        <button type="button" class="btn btn-primary m-1" (click)="editItem(item)"
+                            *ngIf="!item.editing">Editar</button>
+                        <button type="button" class="btn btn-success m-1" (click)="saveItem(item)"
+                            *ngIf="item.editing">Salvar</button>
+                        <button type="button" class="btn btn-warning m-1" (click)="cancelEdit(item)"
+                            *ngIf="item.editing">Cancelar</button>
+                        <button type="button" class="btn btn-danger m-1" (click)="deleteItem(item)">Excluir</button>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

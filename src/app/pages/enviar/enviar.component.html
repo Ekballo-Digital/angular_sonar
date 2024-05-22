@@ -1,0 +1,149 @@
+<app-navbar></app-navbar>
+
+<div class="container" style="margin-top: 100px;">
+    <app-cred></app-cred>
+
+    <div class="row mt-5">
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+
+            <input type="text" *ngIf="this.Tipo == 'F'; else emptyCell" disabled placeholder="Mensagem"
+                class="form-control" value="{{this.Estado}}">
+
+            <ng-template #emptyCell>
+                <input type="text" placeholder="Mensagem" class="form-control" [(ngModel)]="mensagem" required="">
+            </ng-template>
+
+        </div>
+        <div class="col-md-2">
+
+            <app-enviar-msg-form (onSubmit)="EnviarMensagem($event)"
+                *ngIf="Tipo == 'F'; else btmanual"></app-enviar-msg-form>
+
+            <ng-template #btmanual>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-warning mb-4" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    Enviar mensagem
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Aprovação de envio 🅰️</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Tem certeza que vai executar envio de mensagens?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-warning" (click)="gerarJSON()">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <button type="submit" class="btn btn-warning" (click)="gerarJSON()">Enviar</button> -->
+            </ng-template>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-2 mt-4">
+        </div>
+        <div class="col-md-8">
+            <ng-container *ngIf="Tipo == 'F'; else manual">
+                <table class="table">
+                    <thead class="sticky-header">
+                        <tr>
+                            <th scope="col">Area</th>
+                            <th scope="col">Alerta</th>
+                            <th scope="col">Prioridade</th>
+                            <th scope="col">Cor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let item of Estados">
+                            <th scope="row">{{ item.siglaArea }}</th>
+                            <td>
+                                <input type="text" disabled class="form-control" value="{{ item.nivelAlerta }}">
+                            </td>
+                            <td>
+                                <input type="text" disabled class="form-control" value="{{ item.codigoPrioridade }}" />
+                            </td>
+                            <td>
+                                <input type="color" [value]="getCorValue(item.descCor)" id="colorIp" disabled
+                                    class="form-control" />
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+
+                </table>
+            </ng-container>
+
+            <ng-template #manual>
+                <table class="table">
+                    <thead class="sticky-header">
+                        <tr>
+                            <th scope="col">Area</th>
+                            <th scope="col">Alerta</th>
+                            <th scope="col">Prioridade</th>
+                            <!-- <th scope="col">Cor</th> -->
+                        </tr>
+                    </thead>
+                    <!-- <form> -->
+                    <tbody>
+                        <tr *ngFor="let item of Estados; let i = index">
+                            <th scope="row">{{ item.siglaArea }}</th>
+                            <td>
+                                <input type="hidden" [value]="mensagem">
+                                <input type="hidden" [value]="item.codigoArea">
+
+                                <select class="form-control" [(ngModel)]="selectedAlertaNivel[i]">
+                                    <option></option>
+                                    <option *ngFor="let row of Alertas" [value]="row.alertaNivel">
+                                        {{row.alertaNivel}}
+                                    </option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control" [(ngModel)]="selectedPrioridade[i]">
+                                    <option></option>
+                                    <option *ngFor="let row of Propiedades" [value]="row.codigoPrioridade">
+                                        {{row.nomePrioridade}}
+                                    </option>
+                                </select>
+                            </td>
+                            <!-- <td>
+                                <select class="form-control" [(ngModel)]="selectedCor[i]">
+                                    <option></option>
+                                    <option *ngFor="let row of Cor" [value]="row.descricaoCor">
+                                        {{row.descricaoCor}}
+                                    </option>
+                                </select>
+                            </td> -->
+                        </tr>
+                        <!-- <button type="submit" class="btn btn-warning" (click)="gerarJSON()">Enviar</button> -->
+                    </tbody>
+                    <!-- </form> -->
+
+                </table>
+            </ng-template>
+
+        </div>
+
+        <div class="col-md-2"></div>
+
+
+    </div>
+</div>

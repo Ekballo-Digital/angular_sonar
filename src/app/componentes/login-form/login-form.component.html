@@ -1,0 +1,18 @@
+<!-- fim do preloader -->
+<form class="form-signin" [formGroup]="LoginForm" (ngSubmit)="submit()" #formDit="ngForm">
+    <img class="mb-4" src="../../../assets/imgs/logo.png" alt="">
+
+    <h5 class="mb-3 font-weight-normal">Gerenciamento da Emergência para Segurança Operacional da UPV
+    </h5>
+
+    <div class="mb-3">
+        <input type="text" formControlName="matriculaUsuario" class="form-control" placeholder="Matrícula">
+    </div>
+
+    <div class="mb-3">
+        <input type="password" formControlName="senhaUsuario" class="form-control" placeholder="Senha">
+    </div>
+
+    <button type="submit" class="btn btn-lg btn-warning btn-block">Entrar</button>
+    <p class="mt-5 mb-3">CSN {{Ano}}</p>
+</form>

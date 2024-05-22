@@ -1,0 +1,16 @@
+.msgs-box {
+    border-radius: 9px;
+    margin-top: 8px
+}
+
+.box-msg-enviadas {
+    background: #f3f3f3;
+    padding: 24px;
+    border-radius: 14px;
+}
+
+.box-msgs-recebidas {
+    background: #f3f3f3;
+    padding: 24px;
+    border-radius: 14px;
+}

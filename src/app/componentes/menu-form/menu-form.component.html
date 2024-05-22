@@ -1,0 +1,14 @@
+<form [formGroup]="MenuForm" (ngSubmit)="submit()">
+    <div class="p-2">
+        <label>Nome</label>
+        <input type="text" class="form-control" formControlName="nomeMenu">
+    </div>
+
+    <div class="p-2">
+        <label>URL</label>
+        <input type="url" class="form-control" formControlName="urlMenu">
+    </div>
+
+    <button type="submit" class="btn btn-warning mt-3" style="margin-right: 7px;">Cadastrar</button>
+    <a routerLink="/controle/editar/menu" class="btn btn-warning mt-3">Ações</a>
+</form>

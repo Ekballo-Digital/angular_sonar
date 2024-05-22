@@ -1,0 +1,9 @@
+<form [formGroup]="PerfilForm" (ngSubmit)="submit()">
+    <div class="p-2">
+        <label>Perfil</label>
+        <input type="text" class="form-control" formControlName="nomePerfil">
+    </div>
+
+    <button type="submit" class="btn btn-warning mt-3" style="margin-right: 7px;">Cadastrar</button>
+    <a routerLink="/controle/editar/perfil" class="btn btn-warning mt-3">Ações</a>
+</form>

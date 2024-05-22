@@ -1,0 +1,26 @@
+th,
+td {
+    border-bottom: 1px solid #dee2e6;
+}
+
+td,
+.td-sigla,
+th {
+    text-align: center;
+}
+
+th {
+    font-size: 11px;
+    border-right: 1px solid #dee2e6;
+
+}
+
+
+td {
+    border-right: 1px solid #dee2e6;
+
+}
+
+input {
+    border: transparent;
+}

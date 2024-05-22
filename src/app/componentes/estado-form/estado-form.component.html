@@ -1,0 +1,30 @@
+<form [formGroup]="EstadoForm" (ngSubmit)="submit()">
+    <div class="p-2">
+        <label>Estado</label>
+        <input type="text" class="form-control" formControlName="descricaoEstado">
+    </div>
+
+    <div class="p-2">
+        <label>Área</label>
+        <select class="form-select" formControlName="codigoAreaEstado">
+            <option></option>
+            <option *ngFor="let item of ResponseArea" value="{{item.codigoArea}}">{{item.nomeArea}} -
+                {{item.siglaArea}}
+            </option>
+        </select>
+    </div>
+
+    <div class="p-2">
+        <label>Tipo</label>
+        <select class="form-select" formControlName="tipoEstado">
+            <option></option>
+            <option value="F">Fixo</option>
+            <option value="L">Livre</option>
+        </select>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-warning mt-3" style="margin-right: 7px;">Cadastrar</button>
+    <a routerLink="/cadastro/editar/estado" class="btn btn-warning mt-3">Ações</a>
+</form>

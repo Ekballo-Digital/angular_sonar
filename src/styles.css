@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import 'ngx-toastr/toastr';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+
+
+/* ini: Preloader */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    /* cor do background que vai ocupar o body */
+    z-index: 9990000;
+    /* z-index para jogar para frente e sobrepor tudo */
+    opacity: 0.8;
+}
+
+#preloader .inner {
+    position: absolute;
+    top: 50%;
+    /* centralizar a parte interna do preload (onde fica a animaÃ§Ã£o)*/
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bolas>div {
+    display: inline-block;
+    background-color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    margin: 3px;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-name: animarBola;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+}
+
+.bolas>div:nth-child(1) {
+    animation-duration: 0.75s;
+    animation-delay: 0;
+}
+
+.bolas>div:nth-child(2) {
+    animation-duration: 0.75s;
+    animation-delay: 0.12s;
+}
+
+.bolas>div:nth-child(3) {
+    animation-duration: 0.75s;
+    animation-delay: 0.24s;
+}
+
+@keyframes animarBola {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    16% {
+        -webkit-transform: scale(0.1);
+        transform: scale(0.1);
+        opacity: 0.7;
+    }
+
+    33% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* end: Preloader */
+
+a {
+    text-decoration: none;
+}
+
+.menuLink {
+    text-decoration: none;
+    background: #ffffff;
+    border-radius: 7px;
+    padding: 7px !important;
+    margin: 8px;
+    transition: var(--tran-06);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.203);
+}
+
+.menuLink:hover {
+    box-shadow: 10px 5px 8px rgba(0, 0, 0, 0.203);
+    /* border: 1px solid #000; */
+    transition: var(--tran-06);
+}
+
+:root {
+    /* ===== Colors ===== */
+    --body-color: #efefef;
+    --sidebar-color: #ffc800;
+    --primary-color: #ffc800;
+    --primary-color-light: #f6f5ff;
+    --toggle-color: #ddd;
+    --text-color: #707070;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+    --tran-06: all 0.5s ease;
+}
+
+
+.bloq {
+    padding: 14px;
+    border-radius: 14px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* margin-top: 40px; */
+    align-content: center;
+}
+
+.navbar {
+    background: #ffc800 !important;
+}
+
+
+.table {
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+.table {
+    --bs-table-bg: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.options {
+    width: 280px !important;
+    height: 140px;
+    padding: 20px;
+    background-color: #ffc800;
+    color: #fff;
+    display: flex;
+    font-weight: 600;
+    justify-content: space-between;
+    border-radius: 8px;
+    margin: 18px;
+    transition: var(--tran-06);
+    box-shadow: 10px 5px 8px rgba(0, 0, 0, 0.203);
+}
+
+.options:hover {
+    transform: scale(1.1);
+    transition: var(--tran-05);
+    cursor: pointer;
+    background: #0000002f;
+    color: #fff
+}
+
+.box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    align-content: center;
+}
+
+.bot2 {
+    width: 100px;
+    height: 150px;
+    position: absolute;
+    z-index: 1;
+    margin-top: 1px;
+    margin-left: -30px;
+}
+
+.icon-svg {
+    font-size: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.icon-svg-bs {
+    width: 50px;
+    height: 75px;
+}
+
+
+.led-panel {
+    background: #494949;
+    display: grid;
+    grid-template-columns: repeat(27, 1fr);
+    gap: 3px;
+    border-radius: 8px;
+    padding: 14px;
+    margin-top: 12px;
+    margin-bottom: 14px;
+}
+
+.led {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #333;
+    box-shadow: 0 0 10px rgb(255 0 0 / 70%);
+}
+
+/* Simular LEDs acesos */
+.led.on {
+    background-color: #f00;
+    box-shadow: 0 0 20px rgb(255 0 0);
+}
+
+
+.btn-painel {
+    border: 1px solid #000;
+    padding: 8px;
+    border-radius: 12px;
+    margin: 8px;
+}
+
+.zebra {
+
+
+    border-width: 3px;
+    /* Ajuste a largura da borda conforme necessário */
+    border-style: solid;
+    border-image: linear-gradient(to right, #ffc800 30%, black 50%);
+    border-image-slice: 1;
+
+}
+
+.link-painel {
+    background: rgb(255 255 255 / 40%);
+    box-shadow: 0px 0px 11px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #000;
+    transition: var(--tran-06);
+}
+
+.link-painel:hover {
+    background: rgba(255, 200, 0, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(54, 54, 55, 0.37);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: var(--tran-06);
+}
+
+
+.formulario {
+    --bs-table-bg: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 20px;
+}
+
+
+.bt-alerta {
+    margin: 8px;
+    border: 1px solid #000;
+    padding: 4px;
+    border-radius: 6px;
+    color: #000;
+    font-size: 13px;
+    transition: var(--tran-06);
+    background-color: #fff;
+}
+
+.bt-alerta:hover {
+    border: 1px solid #f00;
+    color: #f00;
+    transition: var(--tran-06);
+}

@@ -1,0 +1,87 @@
+<app-navbar></app-navbar>
+
+<div class="container" style="margin-top: 100px;">
+    <app-cred></app-cred>
+
+
+    <div class="row text-center mt-3">
+
+        <!-- <div class="col-md-4"></div> -->
+        <div class="col-md-12">
+
+            <div class="bloq zebra text-center">
+
+
+                <!-- <h5>Selecione o painel para operação</h5> -->
+
+                <a *ngFor="let item of paineis" routerLink="/paineis/opcoes/{{ item.codigoPainel  }}/30">
+                    <div class="btn-painel link-painel">
+                        <h6>Painel {{ item.codigoPainel }}: <b>{{ item.siglaArea }}</b></h6>
+
+                        <div class="led-panel">
+                            <!-- Adicione ou remova a classe "on" para acender ou apagar os LEDs -->
+                            <div class="led on"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                            <div class="led"></div>
+                        </div>
+                    </div>
+                </a>
+
+
+            </div>
+        </div>
+        <!-- <div class="col-md-4"></div> -->
+    </div>
+
+</div>

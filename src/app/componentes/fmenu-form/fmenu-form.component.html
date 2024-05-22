@@ -1,0 +1,47 @@
+<form [formGroup]="FMenuForm" (ngSubmit)="submit()">
+    <!-- <div class="p-2">
+        <label>Menu</label>
+        <input type="text" class="form-control">
+    </div> -->
+
+    <div class="p-2">
+        <label>Menu</label>
+        <select class="form-select" formControlName="codigoMenu">
+            <option></option>
+            <option *ngFor="let item of Menu" value="{{item.codigoMenu}}">{{item.nomeMenu}}
+            </option>
+        </select>
+    </div>
+
+    <div class="p-2">
+        <label>Funções</label>
+        <div class="p-2">
+            <select class="form-select" formControlName="codigoFuncao">
+                <option></option>
+                <option *ngFor="let item of FMenu" value="{{item.codigoFuncao}}">{{item.descricaoFuncao}}
+                </option>
+            </select>
+        </div>
+        <!-- <div class="col-md-3 p-1">
+            <input type="text" class="form-control">
+        </div>
+
+        <div class="col-md-3 p-1">
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-md-3 p-1">
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-md-3 p-1">
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-md-3 p-1">
+            <input type="text" class="form-control">
+        </div> -->
+    </div>
+
+
+
+    <button type="submit" class="btn btn-warning mt-3" style="margin-right: 7px;">Cadastrar</button>
+    <a routerLink="/controle/editar/funcao-menu" class="btn btn-warning mt-3">Ações</a>
+</form>

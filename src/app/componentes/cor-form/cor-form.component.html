@@ -1,0 +1,24 @@
+<form [formGroup]="CorForm" (ngSubmit)="submit()">
+    <div class="p-2">
+        <label>Cor</label>
+        <input type="text" class="form-control" formControlName="descricaoCor">
+    </div>
+
+
+    <div class="p-2">
+        <label>RGB</label>
+        <div class="d-flex flex-row">
+            <input type="text" class="form-control" style="margin-right: 6px;" formControlName="hexaCorRed">
+            <input type="text" class="form-control" style="margin-right: 6px;" formControlName="hexaCorGreen">
+            <input type="text" class="form-control" formControlName="hexaCorBlue">
+        </div>
+    </div>
+
+    <div class="p-2">
+        <label>HEXA PAINEL</label>
+        <input type="text" class="form-control" formControlName="hexaCor">
+    </div>
+
+    <button type="submit" class="btn btn-warning mt-3" style="margin-right: 7px;">Cadastrar</button>
+    <a routerLink="/cadastro/editar/cor" class="btn btn-warning mt-3">Ações</a>
+</form>

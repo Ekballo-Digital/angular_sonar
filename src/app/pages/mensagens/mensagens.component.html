@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<div class="container" style="margin-top: 100px;">
+    <app-cred></app-cred>
+
+    <div class="row">
+        <div class="fundoTable">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Operações de mensagens</th>
+                        <th scope="col" class="td-sigla" *ngFor="let linha of siglasTabelaMatriz">
+                            {{ linha.siglaArea }}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of estadosTabelaMatriz; let i = index">
+                        <th scope="row">
+                            <a routerLink="/mensagens/enviar/{{this.IdPainel}}/{{item.codigoEstado}}">{{
+                                item.descricaoEstado }}</a>
+                        </th>
+
+                        <ng-container *ngFor="let subArray of alertaTabelaMatriz[i]">
+                            <td *ngIf="subArray; else emptyCell"
+                                [style.background]="'rgb(' + subArray.red + ',' + subArray.green + ',' + subArray.blue + ')'">
+                                {{ subArray.nivelAlerta === 0 && subArray.codigoPrioridade === 0 ? '0' :
+                                subArray.nivelAlerta + '-' + subArray.codigoPrioridade }}
+                            </td>
+                            <ng-template #emptyCell>
+                                <td></td>
+                            </ng-template>
+                        </ng-container>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

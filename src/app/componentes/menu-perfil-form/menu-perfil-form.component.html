@@ -1,0 +1,24 @@
+<form [formGroup]="MenuPerfilForm" (ngSubmit)="submit()">
+
+    <div class="p-2">
+        <label>Menu</label>
+        <select class="form-select" formControlName="codigoMenu">
+            <option></option>
+            <option *ngFor="let item of ResponseMenu" [value]="item.codigoMenu">{{item.nomeMenu}}
+            </option>
+
+        </select>
+    </div>
+
+    <div class="p-2">
+        <label>Perfil</label>
+        <select class="form-select" formControlName="codigoPerfil">
+            <option></option>
+            <option *ngFor="let item of ResponsePerfil" [value]="item.codigoPerfil">
+                {{item.nomePerfil}}</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-warning mt-3" style="margin-right: 7px;">Cadastrar</button>
+    <a routerLink="/controle/editar/menu-perfil" class="btn btn-warning mt-3">Ações</a>
+</form>
